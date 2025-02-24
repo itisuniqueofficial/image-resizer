@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Image Resizer Tool - Easily resize images online with quality control, multiple formats, and advanced options. Free tool by It Is Unique Official.">
+    <meta name="keywords" content="image resizer, professional image resizer, resize image online, photo resizer tool, free image resizing, image editor, online image tool">
+    <meta name="author" content="It Is Unique Official">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="google-site-verification" content="your-google-verification-code">
+    <meta name="msvalidate.01" content="your-bing-verification-code">
+    <link rel="canonical" href="https://imageresizer.itisuniqueofficial.com">
+    <link rel="icon" href="https://imageresizer.itisuniqueofficial.com/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Professional Image Resizer - Free Advanced Tool">
+    <meta property="og:description" content="Resize images professionally online with quality control, multiple formats, and advanced options. Free tool by It Is Unique Official.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imageresizer.itisuniqueofficial.com">
+    <meta property="og:image" content="https://imageresizer.itisuniqueofficial.com/og-image.jpg">
+    <meta property="og:image:alt" content="Professional Image Resizer Interface">
+    <meta property="og:site_name" content="Image Resizer Tool">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@itisuniqueofficial">
+    <meta name="twitter:title" content="Professional Image Resizer Tool">
+    <meta name="twitter:description" content="Advanced online image resizing with quality control and format options. Free tool by It Is Unique Official.">
+    <meta name="twitter:image" content="https://imageresizer.itisuniqueofficial.com/twitter-image.jpg">
+    <meta name="twitter:image:alt" content="Image Resizer Tool Screenshot">
+
+    <!-- Schema Markup: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "It Is Unique Official",
+        "url": "https://itisuniqueofficial.com",
+        "sameAs": [
+            "https://twitter.com/itisuniqueofficial"
+        ],
+        "description": "It Is Unique Official provides innovative online tools and solutions."
+    }
+    </script>
+
+    <!-- Schema Markup: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Professional Image Resizer",
+        "operatingSystem": "Web",
+        "applicationCategory": "GraphicsSoftware",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "It Is Unique Official",
+            "url": "https://itisuniqueofficial.com"
+        },
+        "description": "A free online tool for resizing images with advanced features like quality control and multiple format support.",
+        "url": "https://imageresizer.itisuniqueofficial.com"
+    }
+    </script>
+
+    <title>Professional Image Resizer - Free Advanced Tool by It Is Unique Official</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Professional Image Resizer</h1>
+        <p>A Free, Advanced Tool by It Is Unique Official</p>
+    </header>
+
+    <main>
+        <section class="controls" itemscope itemtype="https://schema.org/WebApplication">
+            <meta itemprop="name" content="Professional Image Resizer">
+            <meta itemprop="description" content="A free online tool for resizing images with advanced features.">
+            <meta itemprop="url" content="https://imageresizer.itisuniqueofficial.com">
+            <meta itemprop="applicationCategory" content="GraphicsSoftware">
+            <meta itemprop="operatingSystem" content="Web">
+            <meta itemprop="featureList" content="Image resizing, Quality control, Multiple output formats, Aspect ratio maintenance, Cropping">
+            <meta itemprop="browserRequirements" content="Modern web browser (Chrome, Firefox, Safari, Edge)">
+            <meta itemprop="creator" content="It Is Unique Official">
+
+            <div class="control-group">
+                <label for="imageInput">Upload Image</label>
+                <input type="file" id="imageInput" accept="image/*" required>
+            </div>
+            <div class="control-group">
+                <label for="widthInput">Width (px)</label>
+                <input type="number" id="widthInput" min="1" placeholder="Width" required>
+            </div>
+            <div class="control-group">
+                <label for="heightInput">Height (px)</label>
+                <input type="number" id="heightInput" min="1" placeholder="Height" required>
+            </div>
+            <div class="control-group">
+                <label for="quality">Quality (0.1-1)</label>
+                <input type="number" id="quality" min="0.1" max="1" step="0.1" value="0.8" required>
+            </div>
+            <div class="control-group">
+                <label for="format">Output Format</label>
+                <select id="format" required>
+                    <option value="jpeg">JPEG</option>
+                    <option value="png">PNG</option>
+                    <option value="webp">WebP</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Options</label>
+                <label><input type="checkbox" id="maintainAspect" checked> Maintain Aspect</label>
+                <label><input type="checkbox" id="crop" onchange="toggleCrop()"> Crop to Fit</label>
+            </div>
+        </section>
+
+        <div class="btn-group">
+            <button class="resize-btn" id="resizeButton" onclick="resizeImage()" disabled>Resize Image</button>
+            <button class="clear-btn" id="clearButton" onclick="clearForm()">Clear</button>
+        </div>
+
+        <section class="result-section" id="resultSection" itemprop="potentialAction" itemscope itemtype="https://schema.org/Action">
+            <meta itemprop="name" content="Resize Image">
+            <meta itemprop="description" content="Resizes an uploaded image to specified dimensions with quality and format options.">
+            <meta itemprop="target" content="https://imageresizer.itisuniqueofficial.com">
+            <div class="result-info" id="resultInfo"></div>
+            <a id="downloadLink" class="download-btn" download="resized-image" itemprop="result" itemscope itemtype="https://schema.org/DigitalDocument">
+                <meta itemprop="name" content="Resized Image">
+                <span>Download Resized Image</span>
+            </a>
+        </section>
+
+        <section class="faqs" itemscope itemtype="https://schema.org/FAQPage">
+            <h2 class="faq-heading">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question" aria-expanded="false" itemprop="name">
+                        What file formats does this tool support?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <p itemprop="text">This tool supports JPEG, PNG, and WebP formats for output. You can upload any common image format (e.g., JPG, PNG, GIF).</p>
+                    </div>
+                </div>
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question" aria-expanded="false" itemprop="name">
+                        Is this tool free to use?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Yes, the Professional Image Resizer is completely free to use with no hidden fees or subscriptions.</p>
+                    </div>
+                </div>
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question" aria-expanded="false" itemprop="name">
+                        Can I resize multiple images at once?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Currently, this tool resizes one image at a time. Future updates may include batch processing.</p>
+                    </div>
+                </div>
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question" aria-expanded="false" itemprop="name">
+                        How does the quality setting affect my image?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <p itemprop="text">The quality setting (0.1–1) controls compression. Higher values preserve more detail but increase file size, while lower values reduce size with some quality loss.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Inline FAQPage Schema for Search Engines -->
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What file formats does this tool support?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "This tool supports JPEG, PNG, and WebP formats for output. You can upload any common image format (e.g., JPG, PNG, GIF)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is this tool free to use?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, the Professional Image Resizer is completely free to use with no hidden fees or subscriptions."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I resize multiple images at once?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Currently, this tool resizes one image at a time. Future updates may include batch processing."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does the quality setting affect my image?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The quality setting (0.1–1) controls compression. Higher values preserve more detail but increase file size, while lower values reduce size with some quality loss."
+                        }
+                    }
+                ]
+            }
+            </script>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Professional Image Resizer by <a href="https://itisuniqueofficial.com" target="_blank">It Is Unique Official</a>. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
