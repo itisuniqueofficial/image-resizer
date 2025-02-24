@@ -262,7 +262,6 @@ footer a:hover {
     header p { font-size: 1rem; }
     .controls { padding: 1.5rem; gap: 1rem; }
     .btn-group { flex-direction: column; gap: 1rem; }
-    .resize-btn, .clear-btn, .download-btn { width: 100%; }
     .faqs { padding: 1.5rem; }
     .faq-heading { font-size: 1.5rem; }
     .faq-question { font-size: 1.05rem; padding: 1rem 1.2rem; }
